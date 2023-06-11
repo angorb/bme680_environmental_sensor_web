@@ -1,0 +1,60 @@
+.gasEquiv {
+  margin-top: 2%;
+}
+
+.gasEquiv span {
+  font-size: 2em;
+}
+
+.gasEquiv h5 {
+  background-color: lightgray;
+  padding: 2%;
+  border-radius: 25px;
+}
+
+pre {
+  width: 40%;
+  display: inline;
+}
+
+.GaugeMeter {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  cursor: default;
+  display: inline;
+}
+
+.GaugeMeter span,
+.GaugeMeter b {
+  margin: 0 23%;
+  width: 54%;
+  position: absolute;
+  text-align: center;
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 100;
+  font-family: "Open Sans", Arial;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.GaugeMeter[data-style="Semi"] B {
+  margin: 0 10%;
+  width: 80%;
+}
+
+.GaugeMeter s,
+.GaugeMeter u {
+  text-decoration: none;
+  font-size: 0.5em;
+  opacity: 0.5;
+}
+
+.GaugeMeter b {
+  color: black;
+  font-weight: 300;
+  font-size: 0.5em;
+  opacity: 0.8;
+}

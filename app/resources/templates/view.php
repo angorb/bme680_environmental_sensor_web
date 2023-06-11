@@ -15,6 +15,7 @@ $client = new SensorClient("192.168.1.172");
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/gauges.css">
 
     <title>Bosch Sensortec BME680</title>
 </head>
@@ -66,16 +67,16 @@ $client = new SensorClient("192.168.1.172");
 
                     <hr>
 
-                    <div class="row small text-muted text-center mb-2" id="infoPanel">
-                        <div class="col-sm-2">Last Updated: <span id="lastUpdated"></span>
+                    <div class="row small text-muted text-center" id="infoPanel">
+                        <div class="col-sm-2 m-auto"><strong>Last Updated:</strong> <span id="lastUpdated"></span>
                         </div>
-                        <div class="col-sm-2">Uptime: <span id="uptime"></span> sec
+                        <div class="col-sm-2 m-auto"><strong>Uptime:</strong> <span id="uptime"></span>
                         </div>
-                        <div class="col-sm-2">IAQ Calibrated: <span id="iaqAccuracy"></span>
+                        <div class="col-sm-2 m-auto">IAQ Calibrated: <span id="iaqAccuracy"></span>
                         </div>
-                        <div class="col-sm-2">Status[Stab]: <span id="statusStab"></span>
+                        <div class="col-sm-2 m-auto">Status[Stab]: <span id="statusStab"></span>
                         </div>
-                        <div class="col-sm-2">Status[RunIn]: <span id="statusRunIn"></span>
+                        <div class="col-sm-2 m-auto">Status[RunIn]: <span id="statusRunIn"></span>
                         </div>
                     </div>
 
@@ -99,128 +100,8 @@ $client = new SensorClient("192.168.1.172");
     <!-- JavaScript -->
     <script src="/scripts/jquery.min.js"></script>
     <script src="/scripts/bootstrap.min.js"></script>
-    <script src="/scripts/consciousness.js"></script>
+    <script src="/scripts/sensor-card.js"></script>
     <script src="/scripts/GaugeMeter.js"></script>
-    <script>
-        function updateSensorData() {
-            $.get('http://192.168.1.172', function(data) {
-                $('#ajaxresult').text(JSON.stringify(data, null, 2));
-
-                console.log(data.iaq.toFixed());
-
-                $('#iaq').gaugeMeter({
-                    used: Math.round(data.iaq),
-                    showvalue: true,
-                    min: 0,
-                    total: 500,
-                    animationstep: 0
-                });
-
-                $('#staticIaq').gaugeMeter({
-                    used: Math.round(data.static_iaq),
-                    animationstep: 0
-                });
-
-                $('#co2Equiv span').text(parseInt(data.co2_equivalent));
-
-                $('#vocEquiv span').text(data.breath_voc_equivalent.toFixed());
-
-                $('#temp').gaugeMeter({
-                    percent: cToF(data.temperature.comp),
-                    animationstep: 0
-                });
-
-                $('#humid').gaugeMeter({
-                    percent: data.humidity.comp,
-                    animationstep: 0
-                });
-
-                $('#pressure').gaugeMeter({
-                    used: 830 //(data.pressure.toFixed() / 100).toFixed()
-                });
-
-                $('#gas').gaugeMeter({
-                    percent: data.gas,
-                    animationstep: 0
-                });
-
-                $('#lastUpdated').text(data.time.now);
-                $('#uptime').text(data.time.uptime);
-            }, 'json');
-            setTimeout(updateSensorData, 5000);
-        }
-
-        function cToF(celsius) {
-            return cToFahr = celsius * 9 / 5 + 32;
-        }
-
-        function toggleRawData() {
-            console.log('test');
-            if ($('.rawdata').is(':visible')) {
-                console.log('visible');
-                $('.rawdata').hide();
-                return;
-            }
-
-            $('.rawdata').show();
-        }
-
-        $(document).ready(function() {
-            $(".GaugeMeter").gaugeMeter();
-            $('.rawdata').hide();
-            updateSensorData();
-
-            $('#showData').on('click', toggleRawData);
-        });
-    </script>
-    <style>
-        pre {
-            width: 40%;
-            display: inline;
-        }
-
-        .GaugeMeter {
-            Position: Relative;
-            Text-Align: Center;
-            Overflow: Hidden;
-            Cursor: Default;
-            display: inline;
-        }
-
-        .GaugeMeter SPAN,
-        .GaugeMeter B {
-            Margin: 0 23%;
-            Width: 54%;
-            Position: Absolute;
-            Text-align: Center;
-            Display: Inline-Block;
-            Color: RGBa(0, 0, 0, .8);
-            Font-Weight: 100;
-            Font-Family: "Open Sans", Arial;
-            Overflow: Hidden;
-            White-Space: NoWrap;
-            Text-Overflow: Ellipsis;
-        }
-
-        .GaugeMeter[data-style="Semi"] B {
-            Margin: 0 10%;
-            Width: 80%;
-        }
-
-        .GaugeMeter S,
-        .GaugeMeter U {
-            Text-Decoration: None;
-            Font-Size: .5em;
-            Opacity: .5;
-        }
-
-        .GaugeMeter B {
-            Color: Black;
-            Font-Weight: 300;
-            Font-Size: .5em;
-            Opacity: .8;
-        }
-    </style>
 </body>
 
 </html>
