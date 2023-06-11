@@ -21,7 +21,8 @@
     "guzzlehttp/guzzle": "^7.4",
     "monolog/monolog": "^2.7",
     "nesbot/carbon": "^2.58",
-    "middlewares/whoops": "^2.0"
+    "middlewares/whoops": "^2.0",
+    "amphp/postgres": "^1.4"
   },
   "scripts": {
     "post-update-cmd": [
@@ -35,5 +36,8 @@
       "mkdir -p ./database  && chmod 777 ./database",
       "yarn install"
     ]
+  },
+  "require-dev": {
+    "spatie/ray": "^1.37"
   }
 }

@@ -5,7 +5,6 @@ app/node_modules
 app/public/css/bootstrap*
 app/public/scripts/jquery*
 app/public/scripts/bootstrap*
-app/database
 app/log
 app/public/fonts/fontawesome-webfont.eot
 app/public/fonts/fontawesome-webfont.svg
@@ -15,3 +14,4 @@ app/public/fonts/fontawesome-webfont.woff2
 app/public/fonts/FontAwesome.otf
 app/public/css/font-awesome.css.map
 app/public/css/font-awesome.min.css
+app/ray.php
