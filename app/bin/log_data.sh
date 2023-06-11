@@ -17,7 +17,7 @@ while (true) {
     $dateString = date_format(date_create('now'), 'Y-m-d H:i:s a');
 
     try {
-        $json = $client->getSensorJson();
+        $json = $client->update()->getSensorJson();
         $data = Data::fromJson($json);
         $datbase->insertLog($data);
 
