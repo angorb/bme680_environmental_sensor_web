@@ -112,14 +112,21 @@ $client = new Client("192.168.1.172");
                     </div>
 
                     <div class="row mt-2">
-                        <div class="col-5 rawdata m-auto" id="phpData">
-                            <h5>PHP Client:</h5>
-                            <pre><?= json_encode(json_decode($client->getSensorJson()), JSON_PRETTY_PRINT) ?></pre>
+                        <div class="col-6 rawdata m-auto" id="jsData">
+                            <h5>JS SensorData</h5>
+                            <pre id="jsSensorData"><code></code></pre>
                         </div>
 
-                        <div class="col-5 rawdata m-auto" id="jsData">
-                            <h5>Ajax Client</h5>
-                            <pre id="ajaxresult"></pre>
+                        <div class="col-6 rawdata m-auto" id="jsData">
+                            <h5>JS PowerData</h5>
+                            <pre id="jsPowerData"><code></code></pre>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-12 rawdata m-auto" id="phpData">
+                            <h5>PHP SensorData:</h5>
+                            <pre><code><?= json_encode(json_decode($client->getSensorJson()), JSON_PRETTY_PRINT) ?></code></pre>
                         </div>
                     </div>
                 </div>

@@ -63,7 +63,7 @@
         $("#gasStab").text(!!data.status.run_in && !!data.status.stab);
 
         // update raw data
-        $("#ajaxresult").text(JSON.stringify(data, null, 2));
+        $("#jsSensorData code").text(JSON.stringify(data, null, 2));
       },
       "json"
     );
@@ -100,6 +100,9 @@
           append: "%",
           label: "Change / hr",
         });
+
+        // update raw data
+        $("#jsPowerData code").text(JSON.stringify(data, null, 2));
       },
       "json"
     );
@@ -137,6 +140,7 @@
       $(".power").hide();
       return;
     }
+
     updatePowerData();
     $(".power").show();
   }
@@ -151,6 +155,8 @@
     $(".GaugeMeter").gaugeMeter();
     $(".rawdata").hide();
     $(".power").hide();
+
+    togglePower(); // TODO bad name for method
 
     $("#showData").on("click", toggleRawData);
     $("#togglePower").on("change", togglePower);

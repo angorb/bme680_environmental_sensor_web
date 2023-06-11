@@ -10,8 +10,13 @@ class Database
 {
     private \PDO $dbh;
 
-    public function __construct(string $host, string $db, string $username, string $password, int $port = 5432)
-    {
+    public function __construct(
+        protected string $host,
+        protected string $db,
+        protected string $username,
+        protected string $password,
+        protected int $port = 5432
+    ) {
         $dsn = $this->getDsn($host, $db, $username, $password, $port);
         $this->dbh = new PDO($dsn);
     }

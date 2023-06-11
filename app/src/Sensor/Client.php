@@ -2,7 +2,6 @@
 
 namespace Angorb\EnvironmentalSensor\Sensor;
 
-
 class Client
 {
     protected \GuzzleHttp\Client $client;
@@ -11,17 +10,17 @@ class Client
     public function __construct(string $ip)
     {
         $this->client = new \GuzzleHttp\Client([
-            // Base URI is used with relative requests
             'base_uri' => "http://" . $ip,
         ]);
 
         $this->update();
     }
 
-    public function update(): self
+    public function update(?string $path = null): self
     {
-        $res = $this->client->request('GET', '/');
-        $this->sensorBody = $res->getBody();
+        $uri = '/' . $path;
+        $response = $this->client->request('GET', $uri);
+        $this->sensorBody = $response->getBody();
 
         return $this;
     }

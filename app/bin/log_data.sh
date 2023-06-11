@@ -26,5 +26,5 @@ while (true) {
         echo '[' . $dateString . ']: ' . $t->getMessage();
     }
 
-    sleep(30);
+    sleep(5);
 }
