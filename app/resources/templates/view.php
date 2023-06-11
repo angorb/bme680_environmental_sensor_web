@@ -39,13 +39,13 @@ $client = new Client("192.168.1.172");
 
                     <div class="row text-center">
                         <div class="col-sm-4 m-auto">
-                            <div class="GaugeMeter" id="temp" data-label="Temp" data-size="150" data-width="15" data-theme="Green-Gold-Red"></div>
+                            <div class="GaugeMeter" id="temp" data-label="Temp" data-size="150" data-width="15" data-theme="Green-Gold-Red" data-append="&deg;F"></div>
                         </div>
                         <div class="col-sm-4 m-auto">
                             <div class="GaugeMeter" id="humid" data-label="Humidity" data-size="150" data-width="15" data-theme="Green-Gold-Red" data-append="%"></div>
                         </div>
                         <div class="col-sm-4 m-auto">
-                            <div class="GaugeMeter" id="pressure" data-animationstep='0' data-label="Pressure" data-size="150" data-width="15" data-theme="LightBlue-DarkBlue" data-min="650" data-total="1090" data-showvalue="true"></div>
+                            <div class="GaugeMeter" id="pressure" data-label="Pressure [hPa]" data-size="150" data-width="15" data-theme="LightBlue-DarkBlue" data-min="700"></div>
                         </div>
                     </div>
 
@@ -69,13 +69,11 @@ $client = new Client("192.168.1.172");
                     <hr>
 
                     <div class="row small text-muted text-center" id="infoPanel">
-                        <div class="col-sm-3 m-auto"><strong>Uptime:</strong> <span id="uptime"></span>
+                        <div class="col-sm-4 m-auto"><strong>Uptime:</strong> <span id="uptime"></span>
                         </div>
-                        <div class="col-sm-3 m-auto"><strong>IAQ Calibrated:</strong> <span id="iaqAccuracy"></span>
+                        <div class="col-sm-4 m-auto"><strong>IAQ Calibrated:</strong> <span id="iaqAccuracy"></span>
                         </div>
-                        <div class="col-sm-3 m-auto"><strong>Status[Stab]:</strong> <span id="statusStab"></span>
-                        </div>
-                        <div class="col-sm-3 m-auto"><strong>Status[RunIn]:</strong> <span id="statusRunIn"></span>
+                        <div class="col-sm-4 m-auto"><strong> Gas Stabilization:</strong> <span id="gasStab"></span>
                         </div>
                     </div>
 

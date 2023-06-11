@@ -9,7 +9,7 @@
         $("#iaq").gaugeMeter({
           used: Math.round(data.iaq),
           showvalue: true,
-          min: 0,
+          min: 50,
           total: 500,
           animationstep: 0,
         });
@@ -35,26 +35,27 @@
         });
 
         $("#pressure").gaugeMeter({
-          used: 830, //(data.pressure.toFixed() / 100).toFixed()
+          used: Math.round(data.pressure / 100),
+          showvalue: true,
+          min: 600,
+          total: 1080,
+          animationstep: 0,
         });
 
         // Update gas equiv
         $("#co2Equiv span").text(parseInt(data.co2_equivalent));
 
-        $("#vocEquiv span").text(data.breath_voc_equivalent.toFixed());
+        $("#vocEquiv span").text(data.breath_voc_equivalent.toFixed(3));
 
         // update info bar
         $("#lastUpdated").text(new Date(data.time.now * 1000));
 
         var uptime = toHoursAndMinutes(data.time.uptime);
 
-        $("#uptime").text(
-          uptime.h + " hours, " + uptime.m + " min, " + uptime.s + " sec"
-        );
+        $("#uptime").text(uptime.h + "h" + uptime.m + "m" + uptime.s + "s");
 
         $("#iaqAccuracy").text(!!data.iaq_accuracy);
-        $("#statusStab").text(!!data.status.stab);
-        $("#statusRunIn").text(!!data.status.run_in);
+        $("#gasStab").text(!!data.status.run_in && !!data.status.stab);
 
         // update raw data
         $("#ajaxresult").text(JSON.stringify(data, null, 2));
