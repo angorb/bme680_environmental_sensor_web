@@ -67,18 +67,20 @@ $client = new Client("192.168.1.172");
                     </div>
 
                     <hr>
+                    <div id="infoBar">
+                        <div class="row small text-muted my-2">
+                            <div class="col-auto m-auto">
+                                <span id="lastUpdated"></span>
+                            </div>
+                        </div>
 
-                    <div class="row small text-muted text-center" id="infoPanel">
-                        <div class="col-sm-4 m-auto"><strong>Uptime:</strong> <span id="uptime"></span>
-                        </div>
-                        <div class="col-sm-4 m-auto"><strong>IAQ Calibrated:</strong> <span id="iaqAccuracy"></span>
-                        </div>
-                        <div class="col-sm-4 m-auto"><strong> Gas Stabilization:</strong> <span id="gasStab"></span>
-                        </div>
-                    </div>
-
-                    <div class="row small text-muted my-2">
-                        <div class="col-auto m-auto"><strong>Last Updated:</strong> <span id="lastUpdated"></span>
+                        <div class="row small text-muted text-center" id="infoPanel">
+                            <div class="col-sm-4 m-auto"><strong>Uptime:</strong> <span id="uptime"></span>
+                            </div>
+                            <div class="col-sm-4 m-auto"><strong>IAQ Calibrated:</strong> <span id="iaqAccuracy"></span>
+                            </div>
+                            <div class="col-sm-4 m-auto"><strong> Gas Stabilization:</strong> <span id="gasStab"></span>
+                            </div>
                         </div>
                     </div>
 
@@ -99,6 +101,9 @@ $client = new Client("192.168.1.172");
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row small text-muted text-center mt-2">
+            <div class="col-sm-6 m-auto">&copy;<?= date('Y', time()); ?> Nick Brogna :: <a href="https://github.com/angorb/bme680_environmental_sensor_web">GitHub Repo</a></div>
         </div>
     </div>
 
