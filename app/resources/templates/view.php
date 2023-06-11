@@ -23,7 +23,18 @@ $client = new Client("192.168.1.172");
     <div class="container">
         <div class="card mt-4">
             <div class="card-body">
-                <h3 class="card-title">Bosch Sensortec BME680</h3>
+                <div class="row">
+                    <div class="col-8">
+                        <h3 class="card-title">Bosch Sensortec BME680</h3>
+                    </div>
+                    <div class="col-4 text-right">
+                        <form class="form form-inline small">
+                            <input type="checkbox" name="togglePower" id="togglePower">
+                            <label for="togglePower">Show Power</label>
+                        </form>
+                    </div>
+                </div>
+
                 <div class="card-text">
                     <div class="row text-center">
                         <div class="col-sm-4 m-auto">
@@ -45,7 +56,19 @@ $client = new Client("192.168.1.172");
                             <div class="GaugeMeter" id="humid" data-label="Humidity" data-size="150" data-width="15" data-theme="Green-Gold-Red" data-append="%"></div>
                         </div>
                         <div class="col-sm-4 m-auto">
-                            <div class="GaugeMeter" id="pressure" data-label="Pressure [hPa]" data-size="150" data-width="15" data-theme="LightBlue-DarkBlue" data-min="700"></div>
+                            <div class="GaugeMeter" id="pressure" data-label="Pressure [hPa]" data-size="150" data-width="15" data-theme="LightBlue-DarkBlue"></div>
+                        </div>
+                    </div>
+
+                    <div class="row text-center power">
+                        <div class="col-sm-4 m-auto">
+                            <div class="GaugeMeter" id="voltage" data-label="Voltage" data-size="150" data-width="15" data-theme="Red-Gold-Green"></div>
+                        </div>
+                        <div class="col-sm-4 m-auto">
+                            <div class="GaugeMeter" id="charge" data-label="Charge" data-size="150" data-width="15" data-theme="Red-Gold-Green" data-append="%"></div>
+                        </div>
+                        <div class="col-sm-4 m-auto">
+                            <div class="GaugeMeter" id="changeRate" data-label="Change / hour" data-size="150" data-width="15" data-theme="Green-Gold-Red"></div>
                         </div>
                     </div>
 

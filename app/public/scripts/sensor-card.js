@@ -3,8 +3,9 @@
 
   function updateSensorData() {
     $.get(
-      "http://192.168.1.172",
+      "http://192.168.1.172/sensor",
       function (data) {
+        console.log("Sensor Update!");
         // update gauges
         $("#iaq").gaugeMeter({
           used: Math.round(data.iaq),
@@ -24,8 +25,9 @@
           animationstep: 0,
         });
 
+        var tempF = cToF(data.temperature.comp);
         $("#temp").gaugeMeter({
-          used: Math.round(cToF(data.temperature.comp)),
+          used: Math.round(tempF),
           min: 32, // FIXME
           total: 130,
           animationstep: 0,
@@ -65,7 +67,42 @@
       },
       "json"
     );
-    setTimeout(updateSensorData, 5000);
+  }
+
+  function updatePowerData() {
+    $.get(
+      "http://192.168.1.172/power",
+      function (data) {
+        // update gauges
+        var volt_pct = ((data.power.voltage - 3) / (4.2 - 3)) * 100;
+        console.log("Voltage %: " + volt_pct);
+        $("#voltage").gaugeMeter({
+          percent: volt_pct,
+          used: data.power.voltage.toFixed(2),
+          showvalue: true,
+          //min: 3, // FIXME
+          //total: 5,
+          animationstep: 0,
+        });
+
+        $("#charge").gaugeMeter({
+          percent: data.power.soc,
+          used: Math.round(data.power.soc),
+          showvalue: true,
+          animationstep: 0,
+        });
+
+        $("#changeRate").gaugeMeter({
+          percent: Math.abs(data.power.change_rate),
+          used: data.power.change_rate.toFixed(),
+          showvalue: true,
+          animationstep: 0,
+          append: "%",
+          label: "Change / hr",
+        });
+      },
+      "json"
+    );
   }
 
   function cToF(celsius) {
@@ -95,11 +132,29 @@
     $(".rawdata").show();
   }
 
+  function togglePower() {
+    if (!$("#togglePower").is(":checked")) {
+      $(".power").hide();
+      return;
+    }
+    updatePowerData();
+    $(".power").show();
+  }
+
+  function refreshDisplay() {
+    updateSensorData();
+    updatePowerData();
+    setTimeout(refreshDisplay, 5000);
+  }
+
   $(document).ready(function () {
     $(".GaugeMeter").gaugeMeter();
     $(".rawdata").hide();
-    updateSensorData();
+    $(".power").hide();
 
     $("#showData").on("click", toggleRawData);
+    $("#togglePower").on("change", togglePower);
+
+    refreshDisplay();
   });
 })(window.jQuery);
