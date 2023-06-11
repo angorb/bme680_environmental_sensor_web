@@ -9,7 +9,7 @@
         $("#iaq").gaugeMeter({
           used: Math.round(data.iaq),
           showvalue: true,
-          min: 50,
+          min: 50, // FIXME
           total: 500,
           animationstep: 0,
         });
@@ -25,8 +25,11 @@
         });
 
         $("#temp").gaugeMeter({
-          percent: cToF(data.temperature.comp),
+          used: Math.round(cToF(data.temperature.comp)),
+          min: 32, // FIXME
+          total: 130,
           animationstep: 0,
+          showvalue: true,
         });
 
         $("#humid").gaugeMeter({
@@ -37,8 +40,8 @@
         $("#pressure").gaugeMeter({
           used: Math.round(data.pressure / 100),
           showvalue: true,
-          min: 600,
-          total: 1080,
+          min: 600, // FIXME
+          total: 2060,
           animationstep: 0,
         });
 
