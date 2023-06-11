@@ -23,7 +23,7 @@ while (true) {
 
         echo '[' . $dateString . ']: logged record ' . (++$recordsLogged) . PHP_EOL;
     } catch (\Throwable $t) {
-        die($t->getMessage());
+        echo '[' . $dateString . ']: ' . $t->getMessage();
     }
 
     sleep(30);
