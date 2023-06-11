@@ -10,7 +10,7 @@ Uses:
 - SparkFun ESP32 Thing Plus-C
 - Sparkfun BME680 Qwiic Breakout
 - Arduino Framework
-- B
+- Built with PlatformIO
 
 ### Browser Client:
 see: `/app`6-
