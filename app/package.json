@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "font-awesome": "^4.7.0",
+    "handlebars": "^4.7.7",
+    "jquery": "^3.6.0"
+  },
+  "scripts": {
+    "setup": "yarn clean && mkdir -p -m777 ./database ./log && composer install",
+    "clean": "rm -rf ./database ./log ./vendor ./node_modules"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "css-loader": "^6.7.1",
+    "exports-loader": "^4.0.0",
+    "node-sass": "^7.0.1",
+    "postcss-loader": "^7.0.0",
+    "sass-loader": "^13.0.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.73.0"
+  }
+}

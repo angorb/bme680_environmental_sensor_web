@@ -1,0 +1,39 @@
+{
+  "name": "angorb/bme680_environmental_sensor",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "Angorb\\EnvironmentalSensor\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "nick brogna",
+      "email": "hello@nickbrogna.com"
+    }
+  ],
+  "require": {
+    "twbs/bootstrap": "^5.1",
+    "components/jquery": "^3.6",
+    "laminas/laminas-diactoros": "^2.11",
+    "laminas/laminas-httphandlerrunner": "^2.1",
+    "league/route": "^5.1",
+    "guzzlehttp/guzzle": "^7.4",
+    "monolog/monolog": "^2.7",
+    "nesbot/carbon": "^2.58",
+    "middlewares/whoops": "^2.0"
+  },
+  "scripts": {
+    "post-update-cmd": [
+      "rm -f ./public/css/bootstrap.min.css ./public/css/bootstrap.min.css.map ./public/scripts/bootstrap.min.js ./public/scripts/jquery.min.js ./public/scripts/bootstrap.min.js.map",
+      "cp ./vendor/twbs/bootstrap/dist/css/bootstrap.min.* ./public/css/",
+      "cp ./vendor/twbs/bootstrap/dist/js/bootstrap.min.* ./public/scripts/",
+      "cp ./vendor/components/jquery/jquery.min.js ./public/scripts/",
+      "git submodule init",
+      "cp ./lib/GaugeMeter/GaugeMeter.js ./public/scripts/",
+      "mkdir -p ./log  && chmod 777 ./log",
+      "mkdir -p ./database  && chmod 777 ./database",
+      "yarn install"
+    ]
+  }
+}

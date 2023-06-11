@@ -1,0 +1,6 @@
+[submodule "app/lib/GaugeMeter"]
+	path = app/lib/GaugeMeter
+	url = https://github.com/Mictronics/GaugeMeter.git
+[submodule "hardware/ESP32-BME680-Environmental-Sensor"]
+	path = hardware/ESP32-BME680-Environmental-Sensor
+	url = https://github.com/angorb/ESP32-BME680-Environmental-Sensor.git
