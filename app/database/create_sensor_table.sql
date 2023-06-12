@@ -7,7 +7,7 @@ begin;
 create table bme680_sensor_data
 (
     id serial not null,
-    "time" timestamp without time zone,
+    "time" integer,
     iaq numeric,
     iaq_accuracy boolean,
     static_iaq numeric,
