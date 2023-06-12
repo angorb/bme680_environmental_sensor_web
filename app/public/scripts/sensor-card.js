@@ -6,6 +6,7 @@
       "http://192.168.1.172/sensor",
       function (data) {
         console.log("Sensor Update!");
+        $(".alert").hide();
         // update gauges
         $("#iaq").gaugeMeter({
           used: Math.round(data.iaq),
@@ -53,7 +54,7 @@
         $("#vocEquiv span").text(data.breath_voc_equivalent.toFixed(3));
 
         // update info bar
-        $("#lastUpdated").text(new Date(data.time.now * 1000));
+        $(".lastUpdated").text(new Date(data.time.now * 1000));
 
         var uptime = toHoursAndMinutes(data.time.uptime);
 
@@ -66,7 +67,9 @@
         $("#jsSensorData code").text(JSON.stringify(data, null, 2));
       },
       "json"
-    );
+    ).fail(function () {
+      $(".alert").show();
+    });
   }
 
   function updatePowerData() {

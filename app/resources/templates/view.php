@@ -35,6 +35,12 @@ $client = new Client("192.168.1.172");
                     </div>
                 </div>
 
+                <div class="alert alert-danger" role="alert">
+                    <h4>Communication Error</h4>
+                    Lost communication with sensor.<br>
+                    <span class="small text-muted">Last response: <span class="lastUpdated"></span></span>
+                </div>
+
                 <div class="card-text">
                     <div class="row text-center">
                         <div class="col-sm-4 m-auto">
@@ -93,7 +99,7 @@ $client = new Client("192.168.1.172");
                     <div id="infoBar">
                         <div class="row small text-muted my-2">
                             <div class="col-auto m-auto">
-                                <span id="lastUpdated"></span>
+                                <span class="lastUpdated"></span>
                             </div>
                         </div>
 
