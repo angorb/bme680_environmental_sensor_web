@@ -1,6 +1,6 @@
 # bme680_environmental_sensor_web
 
-A simple asynchronous HTTP web client and server for the SparkFun Bosch Sensortec BME680 Qwiic Breakout and ESP32 Thing Plus C. This work is wholly my own goofy weekend project and is not sanctioned by or affiliated with my employer in any way.
+A simple asynchronous HTTP web client and server for the SparkFun Bosch Sensortec BME680 Qwiic Breakout and ESP32 Thing Plus C. This work is wholly my own hacky weekend project and is not sanctioned by or affiliated with my employer in any way.
 
 ![image](https://github.com/angorb/bme680_environmental_sensor_web/assets/17731071/70288ee5-c8e7-49d8-9e54-d0dbd1639367)
 
