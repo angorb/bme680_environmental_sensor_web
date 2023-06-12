@@ -2,7 +2,7 @@
 
 A simple asynchronous HTTP web client and server for the Bosch Sensortec BME680.
 
-![image](https://github.com/angorb/bme680_environmental_sensor_web/assets/17731071/10b3adf2-ecd0-4703-9804-b868e1e8f065)
+![image](https://github.com/angorb/bme680_environmental_sensor_web/assets/17731071/70288ee5-c8e7-49d8-9e54-d0dbd1639367)
 
 ### Hardware:
 
