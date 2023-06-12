@@ -13,3 +13,13 @@ code {
 pre {
   white-space: pre-wrap;
 }
+
+a {
+  color: #666;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #444;
+  text-decoration: underline;
+}

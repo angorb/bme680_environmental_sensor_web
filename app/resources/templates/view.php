@@ -27,8 +27,8 @@ $client = new Client("192.168.1.172");
                     <div class="col-8">
                         <h3 class="card-title">Bosch Sensortec BME680</h3>
                     </div>
-                    <div class="col-4 text-right">
-                        <form class="form form-inline small">
+                    <div class="col-4 text-right small text-muted">
+                        <form class="form form-inline">
                             <input type="checkbox" name="togglePower" id="togglePower">
                             <label for="togglePower">Show Power</label>
                         </form>
