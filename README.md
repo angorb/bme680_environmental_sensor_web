@@ -2,15 +2,18 @@
 
 A simple asynchronous HTTP web client and server for the SparkFun Bosch Sensortec BME680 Qwiic Breakout and ESP32 Thing Plus C. This work is wholly my own hacky weekend project and is not sanctioned by or affiliated with my employer in any way.
 
+I wanted to quantify the indoor air quality in my home office, which is where I spend the majority of my time and is also full of solvents and adhesives and 3D printing filaments, etc. This was about as simple of a decent graphical display of the data as I could put together without too much effort; a lot of the Arduino/C code is cobbled together from various examples I came across and the web client is really lazy and full of not-best practices. Oh well. It gets me the data I was curious about. 
+
 ![image](https://github.com/angorb/bme680_environmental_sensor_web/assets/17731071/70288ee5-c8e7-49d8-9e54-d0dbd1639367)
 
 ### Hardware:
 
 Source Code Path: `/hardware`
+
 Components:
 
 - SparkFun ESP32 Thing Plus-C
-- Sparkfun BME680 Qwiic Breakout
+- SparkFun BME680 Qwiic Breakout
 - Arduino Framework
 - PlatformIO
 
